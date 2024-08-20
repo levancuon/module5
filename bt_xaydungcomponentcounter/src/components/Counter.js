@@ -1,28 +1,28 @@
 import {useState} from "react";
 
 
-function counter() {
-    const [counter, setCounter] = useState(0);
-    const [value, setValue] = useState(0);
+function Counter() {
+    const [value1, setValue1] = useState(0);
+    const [value2, setValue2] = useState(0);
 
-    const handleCounter = () => {
-        setCounter(prev => prev + 1)
+    const handleCounter1 = () => {
+        setValue1(value1 => value1 + 1)
     }
-    const handleValue = () => {
-        setValue(prev => prev + 1)
+    const handleCounter2 = () => {
+        setValue2(value2 => value2 + 1)
     }
 
     return (
         <div>
             <div>
-                <h1>Count : {counter}</h1>
-                <button onClick={handleCounter}>add 1</button>
+                <h1>Count : {value1}</h1>
+                <button onClick={handleCounter1}>add 1</button>
             </div>
             <div>
-                <h1>Count : {value}</h1>
-                <button onClick={handleValue}>add 2</button>
+                <h1>Count : {value2}</h1>
+                <button onClick={handleCounter2}>add 2</button>
             </div>
         </div>
     )
 }
-export default counter;
+export default Counter;
