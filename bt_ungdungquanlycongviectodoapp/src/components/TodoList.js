@@ -58,6 +58,45 @@ export default TodoList;
 
 
 
+import { useState, useEffect } from 'react';
+
+function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener khi component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, []); // Chỉ cần chạy một lần khi component mount
+
+    return windowSize;
+}
+
+function Component() {
+    const size = useWindowSize();
+
+    return (
+        <div>
+            <h1>Window size:</h1>
+            <p>Width: {size.width}</p>
+            <p>Height: {size.height}</p>
+        </div>
+    );
+}
+
+
+
 
 
 
