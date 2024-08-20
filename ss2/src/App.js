@@ -1,51 +1,64 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react"
+import StudentList from "./component/student/StudentList";
+import DemoState from "./component/DemoState";
 
 function App() {
-    const id = "C0324h1"
-    const student = [
+    const id = "C0324H1"
+
+    const students = [
         {
             id: 1,
-            name: "cuong",
-            age: 18,
+            name: "HaiTT",
+            address: "Quảng Nam",
+            point: 9
         },
         {
             id: 2,
-            name: "cuong",
-            age: 18,
+            name: "HaiTT",
+            address: "Quảng Nam",
+            point: 9
         },
         {
             id: 3,
-            name: "cuong",
-            age: 18,
+            name: "HaiTT",
+            address: "Quảng Nam",
+            point: 9
         }
     ]
+
     const helloWorld = (name) => {
-        alert(`hello ${name}`)
+        alert(`Hello ${name}!`)
     }
+
     return (
         <>
-            <h1 id={id} className="c0324h1" onClick={() => helloWorld("cuong")}>hello</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    student.map((item,index)=>
-                    <tr>
-                        <td>{index}</td>
-                        <td>{item.name}</td>
-                        <td>{item.age}</td>
-                    </tr>
-                    )
-                }
-                </tbody>
-            </table>
+            {/*<h1 id={id} className="c0324h1" onClick={() => helloWorld('HaiTT')}>Hello</h1>*/}
+            {/*<table>*/}
+            {/*    <thead>*/}
+            {/*    <tr>*/}
+            {/*        <th>STT</th>*/}
+            {/*        <th>Name</th>*/}
+            {/*        <th>Address</th>*/}
+            {/*        <th>Point</th>*/}
+            {/*    </tr>*/}
+            {/*    </thead>*/}
+            {/*    <tbody>*/}
+            {/*    {*/}
+            {/*        students.map((item, index) =>*/}
+            {/*            <tr key={item.id}>*/}
+            {/*                <td>{index}</td>*/}
+            {/*                <td>{item.name}</td>*/}
+            {/*                <td>{item.address}</td>*/}
+            {/*                <td>{item.point}</td>*/}
+            {/*            </tr>*/}
+            {/*        )*/}
+            {/*    }*/}
+            {/*    </tbody>*/}
+            {/*</table>*/}
+            {/*<StudentList nameClass = "C0324H1"></StudentList>*/}
+            <DemoState></DemoState>
         </>
     );
 }
