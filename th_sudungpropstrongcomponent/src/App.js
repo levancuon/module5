@@ -2,7 +2,7 @@ import Welcome from './components/Welcome';
 function App() {
   return (
       <div className="App">
-        <Welcome name="Admin" />
+        <Welcome cc="Admin" />
       </div>
   );
 }
