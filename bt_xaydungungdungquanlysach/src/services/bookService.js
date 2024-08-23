@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://jsonplaceholder.typicode.com/posts'; // Sử dụng một API giả lập
+const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 export const getBooks = async () => {
     try {
@@ -17,7 +17,7 @@ export const addBook = async (book) => {
         const resp = await axios.post(API_URL, book);
         return resp.data;
     } catch (error) {
-        console.error('Error adding book:', error);
+        console.error(' Thêm sách thất bại:', error);
         throw error;
     }
 };

@@ -19,13 +19,13 @@ function BookList() {
     };
 
     const handleDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete this book?')) {
+        if (window.confirm('Xóa hả, chắc chưa?')) {
             try {
                 await deleteBook(id);
-                alert('Book deleted successfully');
-                loadBooks(); // Reload the books after deletion
+                alert('Xóa sách thành công');
+                loadBooks();
             } catch (error) {
-                alert('Failed to delete book');
+                alert('Xóa sách thất bại');
             }
         }
     };
