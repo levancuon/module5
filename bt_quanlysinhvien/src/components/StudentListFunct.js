@@ -3,21 +3,35 @@ import * as studentService from "../service/StudentService"
 import {Link, NavLink} from "react-router-dom";
 import {toast} from "react-toastify";
 import { Modal, Button } from 'react-bootstrap';
+import * as classervice from "../service/ClassroomService";
 
 function StudentListFunct() {
     const [students, setStudents] = useState([]);
     const [name, setName] = useState("");
     const [studentDelete, setStudentDelete] = useState(null)
     const [modal, setModal] = useState(false)
+    const [classroomId,setClassroomId] = useState("")
 
     useEffect(() => {
-        getAllStudents(name);
-    }, [name]);
+        getAllStudents(name,classroomId);
+    }, [name,classroomId]);
 
+    const [classrooms, setClassrooms] = useState([]);
+    useEffect(() => {
+        getAllClassrooms();
+    }, []);
 
+    const getAllClassrooms = async () => {
+        try {
+            const res = await classervice.getAllClassrooms();
+            setClassrooms(res);
+        } catch (error) {
+            toast.error("Không thể tải danh sách lớp học.");
+        }
+    };
 
-    const getAllStudents = async (name) => {
-        let res = await studentService.getAll(name);
+    const getAllStudents = async (name,classroomId) => {
+        let res = await studentService.getAll(name,classroomId);
         setStudents(res);
     }
     const deleteStudent = (student) => {
@@ -37,6 +51,9 @@ function StudentListFunct() {
             }
         }
     }
+    const handleChangClass = (e)=>{
+        setClassroomId(e.target.value)
+    }
     const handleCloseModal = () => {
         setModal(false)
         setStudentDelete(null)
@@ -44,6 +61,12 @@ function StudentListFunct() {
     return (
         <div className="container">
             <div>
+                <select className="classroomId form-select mb-2 w-auto " id="classroomId" value={classroomId} onChange={handleChangClass}>
+                    <option className="" value="">Chọn lớp học</option>
+                    {classrooms.map(c => (
+                        <option key={c.id} value={c.id}>{c.name}</option>
+                    ))}
+                </select>
                 <input className="form-select mb-2" placeholder="Nhập tên tìm kiếm" type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
                 <table className="table table-bordered table-hover">
                     <thead>

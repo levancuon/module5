@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "name": "HaiTT2aaaaaaaaa",
+      "name": "HaiTt",
       "age": 50,
       "address": "Quảng Nam",
       "point": 5,
@@ -21,7 +21,7 @@
       "address": "ád",
       "age": 0,
       "point": 6,
-      "classroomId": "",
+      "classroomId": "2",
       "id": 4
     },
     {
@@ -31,14 +31,6 @@
       "point": 1,
       "classroomId": "2",
       "id": 5
-    },
-    {
-      "name": "Lê Văn Cường",
-      "address": "k97,cmt8,phường Khuê Trung",
-      "age": 123,
-      "point": 0,
-      "classroomId": "",
-      "id": 6
     },
     {
       "name": "Lê Văn Cường",

@@ -3,7 +3,7 @@ import * as studentService from "../service/StudentService"
 import {toast} from "react-toastify";
 import {Formik, Field, Form} from "formik";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import * as classeservice from "../service/ClassroomService";
+import * as classervice from "../service/ClassroomService";
 
 function StudentEdit() {
     const {id} = useParams();
@@ -22,7 +22,7 @@ function StudentEdit() {
 
     const getAllClassrooms = async () => {
         try {
-            const res = await classeservice.getAllClassrooms();
+            const res = await classervice.getAllClassrooms();
             setClassrooms(res);
         } catch (error) {
             toast.error("Không thể tải danh sách lớp học.");
@@ -37,7 +37,7 @@ function StudentEdit() {
             toast.error(" Sách này ko thể sửa")
         }
     }
-    const handleSubmit = ( value) => {
+    const handleSubmit = (value) => {
         try {
             let isSuccess = studentService.editStudent(id, value)
             if (isSuccess) {

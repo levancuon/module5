@@ -1,15 +1,15 @@
 import axios from "axios";
+let URL_STUDENT = "http://localhost:8080/students"
+export const getAll = async (name,classroomId) => {
 
-
-const URL_STUDENT = "http://localhost:8080/students"
-
-
-export const getAll = async (name) => {
     try {
         let url = "http://localhost:8080/students?_expand=classroom"
         if (name){
             url += `&name_like=${name}`
         }
+         if(classroomId){
+             url += `&classroomId=${classroomId}`
+         }
        let resp = await axios.get(url);
         return resp.data;
     } catch (e) {
