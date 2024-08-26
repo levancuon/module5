@@ -44,13 +44,16 @@ function StudentListFunct() {
     return (
         <div className="container">
             <div>
-                <input className="form-select" placeholder="Nhập tên tìm kiếm" type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <input className="form-select mb-2" placeholder="Nhập tên tìm kiếm" type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
                 <table className="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>Stt</th>
                         <th>Tên</th>
+                        <th>Địa chỉ</th>
                         <th>Tuổi</th>
+                        <th>Điểm</th>
+                        <th>Lớp</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -61,7 +64,11 @@ function StudentListFunct() {
                                 <tr key={items.id}>
                                     <td>{index + 1}</td>
                                     <td>{items.name}</td>
+                                    <td>{items.address}</td>
                                     <td>{items.age}</td>
+                                    <td>{items.point}</td>
+                                    <td>{items.classroom?.name|| "không có lớp"}</td>
+
                                     <td>
                                         <Link className="btn btn-outline-danger"  to={`/editStudent/${items.id}`}>Chỉnh sửa</Link>
                                         <button className="btn btn-outline-danger ms-2" onClick={() => deleteStudent(items)}>Xóa</button>

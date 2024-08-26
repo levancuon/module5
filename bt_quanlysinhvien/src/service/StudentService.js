@@ -1,7 +1,24 @@
 import axios from "axios";
 
+
 const URL_STUDENT = "http://localhost:8080/students"
 
+
+export const getAll = async (name) => {
+    try {
+        let url = "http://localhost:8080/students?_expand=classroom"
+        if (name){
+            url += `&name_like=${name}`
+        }
+       let resp = await axios.get(url);
+        return resp.data;
+    } catch (e) {
+        console.log("ko tim thay")
+        return []
+    }
+
+
+}
 
 export const deleteStudent = async (id) => {
     try {
@@ -12,17 +29,7 @@ export const deleteStudent = async (id) => {
     }
 }
 
-export const getAll = async (name) => {
-    try {
-        let res = await axios.get(URL_STUDENT + "?name_like=" + name);
-        return res.data;
-    } catch (e) {
-        console.log("ko tim thay")
-        return []
-    }
 
-
-}
 export const create = async (value) => {
     try {
         await axios.post(URL_STUDENT, value)
